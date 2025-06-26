@@ -4,27 +4,32 @@
     <head>
         <title>Math Quiz</title>
         <link rel="stylesheet" href="style.css">
-        
+        <script src="script.js" defer></script>
     </head>
 
     <body>
         <h1>Math Quiz</h1>
 
         <div class="quizArea">
-            <div class=""></div>
+            <div class="progressArea">
+                <p>Question: <span id="questionNumber">1/10</span></p>
+            </div>
             <div class="equationArea">
-                <h2 id="equation">1+1</h2>
+                <span id="equationShow">1+1</span>
             </div>
             <div class="answerArea">
                 <div class="answersRow">
-                    <button class="answerButton" id="button1">Test</button>
-                    <button class="answerButton" id="button2">Test</button>
+                    <button class="answerButton" id="button1" onclick="answerQuestion(1)">Test</button>
+                    <button class="answerButton" id="button2" onclick="answerQuestion(2)">Test</button>
                 </div>
                 <div class="answersRow">
-                    <button class="answerButton" id="button3">Test</button>
-                    <button class="answerButton" id="button4">Test</button>
+                    <button class="answerButton" id="button3" onclick="answerQuestion(3)">Test</button>
+                    <button class="answerButton" id="button4" onclick="answerQuestion(4)">Test</button>
                 </div>
             </div>
         </div>
+        <button onclick="startGame(10)">Start</button>
+
+        <p id="choiceSpotDisplay"></p>
     </body>
 </html>
