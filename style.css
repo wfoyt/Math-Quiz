@@ -11,6 +11,8 @@ body {
 
 
 
+
+
 /* The top progress area */
 
 
@@ -100,4 +102,90 @@ body {
 #button1, #button3 {
     margin-left: 0px;
 }
+
+
+
+
+
+/* The correct/incorrect screen */
+.resultsArea {
+    background-color: #2C3744;
+    border-radius: 20px;
+    width: 500px;
+    height: 570px;
+    padding: 10px;
+}
+
+
+/* The correct screen */
+.correctArea {
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 460px;
+}
+
+
+/* The incorrect screen */
+.incorrectArea {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(192, 27, 27);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 460px;
+}
+
+
+
+/* The check and X for the correct and incorrect screens */
+.resultsImage {
+    width: 100px;
+}
+
+/* The header text for the correct and incorrect screens */
+.resultsTextHeader {
+    color: black;
+    font-size: 50px;
+}
+
+/* The text for the correct and incorrect screens */
+.resultsText {
+    color: black;
+    font-size: 20px;
+}
+
+/* The Results button */
+.resultsButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    height: 100px;
+    background-color: #3B4C61;
+    font-size: 30px;
+    margin-top: 10px;
+    color: white;
+}
+
+.resultsButton:hover {
+    cursor: pointer;
+    background-color: #354457;
+}
+
+
+/* Universal classes */
+.hidden {
+    display: none;
+}
+
+
 

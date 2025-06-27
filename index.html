@@ -10,7 +10,7 @@
     <body>
         <h1>Math Quiz</h1>
 
-        <div class="quizArea">
+        <div class="quizArea hidden" id="quizDisplay">
             <div class="progressArea">
                 <p>Question: <span id="questionNumber">1/10</span></p>
             </div>
@@ -28,8 +28,27 @@
                 </div>
             </div>
         </div>
-        <button onclick="startGame(10)">Start</button>
 
+        <div class="resultsArea hidden" id="resultsDisplay">
+            <div class="correctArea hidden" id="correctDisplay">
+                <img class="resultsImage" src="./Media/check-mark.png">
+                <p class="resultsTextHeader">Correct</p>
+            </div>
+            <div class="incorrectArea hidden" id="incorrectDisplay">
+                <img class="resultsImage" src="./Media/rejected.png">
+                <p class="resultsTextHeader">Incorrect</p>
+                <span class="resultsTextHeader" id="questionResults"></span>
+                <p class="resultsText">
+                    You selected: <span id="yourAnsResults"></span>
+                </p>
+                <p class="resultsText">
+                    Correct answer: <span id="correctAnsResults"></span>
+                </p>
+            </div>
+            <button class="resultsButton" onclick="nextQuestion()">Next Question</button>
+        </div>
+
+        <button onclick="startGame(10)">Start</button>
         <p id="choiceSpotDisplay"></p>
     </body>
 </html>
