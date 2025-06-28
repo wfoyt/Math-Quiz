@@ -14,6 +14,12 @@ const questionResults = document.getElementById('questionResults');
 const yourAnsResults = document.getElementById('yourAnsResults');
 const correctAnsResults = document.getElementById('correctAnsResults');
 
+// Start page screen
+const startPage = document.getElementById('startPage');
+const numQuestionsSliderDisplay = document.getElementById('numQuestionsSliderDisplay');
+const numQuestionsSlider = document.getElementById('numQuestionsSlider');
+const problemTypeDropdown = document.getElementById('problemTypeDropdown');
+
 let equation = "";
 let answer = 0;
 let choice1 = 0;
@@ -121,6 +127,10 @@ function updateDisplay() {
     questionNumDisplay.textContent = questionNum + "/" + totalQuestions;
 }
 
+function updateStartPage() {
+    numQuestionsSliderDisplay.textContent = numQuestionsSlider.value;
+}
+
 function nextQuestion() {
     questionNum++;
     if (questionNum > totalQuestions) {
@@ -139,9 +149,9 @@ function nextQuestion() {
     }
 }
 
-function startGame(numOfQuestions) {
+function startGame() {
     questionNum = 1;
-    totalQuestions = numOfQuestions;
+    totalQuestions = numQuestionsSlider.value;
     createQuestion();
     quizDisplay.classList.remove('hidden');
 }

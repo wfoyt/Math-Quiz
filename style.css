@@ -107,6 +107,7 @@ body {
 
 
 
+
 /* The correct/incorrect screen */
 .resultsArea {
     background-color: #2C3744;
@@ -149,20 +150,80 @@ body {
     width: 100px;
 }
 
-/* The header text for the correct and incorrect screens */
-.resultsTextHeader {
-    color: black;
-    font-size: 50px;
-}
-
 /* The text for the correct and incorrect screens */
 .resultsText {
     color: black;
+}
+
+
+
+
+
+/* The start page */
+.startArea {
+    display: flex;
+    flex-direction: column;
+    background-color: #2C3744;
+    padding: 10px;
+    border-radius: 20px;
+    height: 570px;
+    width: 500px;
+}
+
+/* The top area of the start page */
+.startAreaTop {
+    display: flex;
+    flex-direction: column;
+    height: 460px;
+    background-color: #3B4C61;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* The selectors to customize the quiz */
+.startPageSelectors {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+/* The start page header text */
+#startPageHeader {
+    width: 100%;
+    text-align: center;
+}
+
+/* The slider */
+#numQuestionsSlider {
+    margin-top: 10px;
+}
+
+/* The dropdown */
+#problemTypeDropdown {
+    margin-top: 10px;
+}
+
+
+
+
+
+
+/* Universal classes */
+
+.hidden {
+    display: none;
+}
+
+.textNormal {
     font-size: 20px;
 }
 
-/* The Results button */
-.resultsButton {
+.textHeader {
+    font-size: 50px;
+}
+
+/* Bottom buttons */
+.bottomButton {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -175,17 +236,9 @@ body {
     margin-top: 10px;
     color: white;
 }
-
-.resultsButton:hover {
+.bottomButton:hover {
     cursor: pointer;
     background-color: #354457;
 }
-
-
-/* Universal classes */
-.hidden {
-    display: none;
-}
-
 
 

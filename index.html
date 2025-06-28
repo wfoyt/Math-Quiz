@@ -8,8 +8,8 @@
     </head>
 
     <body>
-        <h1>Math Quiz</h1>
 
+        <!-- The quiz area -->
         <div class="quizArea hidden" id="quizDisplay">
             <div class="progressArea">
                 <p>Question: <span id="questionNumber">1/10</span></p>
@@ -29,26 +29,50 @@
             </div>
         </div>
 
+        <!-- The results page, shows after you answer a question -->
         <div class="resultsArea hidden" id="resultsDisplay">
             <div class="correctArea hidden" id="correctDisplay">
                 <img class="resultsImage" src="./Media/check-mark.png">
-                <p class="resultsTextHeader">Correct</p>
+                <p class="resultsText textHeader">Correct</p>
             </div>
             <div class="incorrectArea hidden" id="incorrectDisplay">
                 <img class="resultsImage" src="./Media/rejected.png">
-                <p class="resultsTextHeader">Incorrect</p>
-                <span class="resultsTextHeader" id="questionResults"></span>
-                <p class="resultsText">
+                <p class="resultsText textHeader">Incorrect</p>
+                <span class="resultsText textHeader" id="questionResults"></span>
+                <p class="resultsText textNormal">
                     You selected: <span id="yourAnsResults"></span>
                 </p>
-                <p class="resultsText">
+                <p class="resultsText textNormal">
                     Correct answer: <span id="correctAnsResults"></span>
                 </p>
             </div>
-            <button class="resultsButton" onclick="nextQuestion()">Next Question</button>
+            <button class="bottomButton" onclick="nextQuestion()">Next Question</button>
         </div>
 
-        <button onclick="startGame(10)">Start</button>
+        <!-- The start page, lets you customize your game and start -->
+         <div class="startArea" id="startPage">
+            <div class="startAreaTop">
+                <p class="textHeader" id="startPageHeader">Math Quiz</p>
+
+                <div class="startPageSelectors" id="sliderArea">
+                    <label class="textNormal" for="numQuestionsSlider">
+                        Number of Questions: 
+                        <span id="numQuestionsSliderDisplay">1</span>
+                    </label>
+                    <input type="range" name="numQuestionsSlider" id="numQuestionsSlider" min="1" max="50" onmousemove="updateStartPage()">
+                </div>
+
+                <div class="startPageSelectors" id="dropdownArea">
+                    <label class="textNormal" for="problemTypeDropdown">Problem Type: </label>
+                    <select name="problemTypeDropdown" id="problemTypeDropdown">
+                        <option value="add">Addition</option>
+                        <option value="sub">Subtraction</option>
+                        <option value="mult">Multiplication</option>
+                    </select>
+                </div>
+            </div>
+            <button class="bottomButton" onclick="startGame()">Start</button>
+         </div>
         <p id="choiceSpotDisplay"></p>
     </body>
 </html>
