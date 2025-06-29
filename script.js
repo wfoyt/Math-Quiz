@@ -5,6 +5,7 @@ const choice2Display = document.getElementById('button2');
 const choice3Display = document.getElementById('button3');
 const choice4Display = document.getElementById('button4');
 const questionNumDisplay = document.getElementById('questionNumber');
+const quizGrade = document.getElementById('quizGrade');
 
 // Correct/Incorrect screens
 const resultsDisplay = document.getElementById('resultsDisplay');
@@ -28,6 +29,8 @@ let choice3 = 0;
 let choice4 = 0;
 let questionNum = 0;
 let totalQuestions = 0;
+let correctQuestions = 0;
+let grade = 0;
 let correct = false;
 
 function answerQuestion(choice) {
@@ -57,7 +60,6 @@ function answerQuestion(choice) {
         answerChoiceValue = choice4;
     }
 
-    // MAKE SOMETHING THAT SHOWS CORRECT/WRONG HERE
     quizDisplay.classList.add('hidden');
     resultsDisplay.classList.remove('hidden');
     if (correct) {
@@ -125,6 +127,7 @@ function updateDisplay() {
     choice3Display.textContent = choice3;
     choice4Display.textContent = choice4;
     questionNumDisplay.textContent = questionNum + "/" + totalQuestions;
+    quizGrade.textContent = grade;
 }
 
 function updateStartPage() {
@@ -132,11 +135,7 @@ function updateStartPage() {
 }
 
 function nextQuestion() {
-    questionNum++;
-    if (questionNum > totalQuestions) {
-        // GO TO THE START SCREEN AGAIN
-    } else {
-        createQuestion();
+    if (questionNum >= totalQuestions) {
         if (correct) {
             resultsDisplay.classList.add('hidden');
             correctDisplay.classList.add('hidden');
@@ -144,14 +143,38 @@ function nextQuestion() {
             resultsDisplay.classList.add('hidden');
             incorrectDisplay.classList.add('hidden');
         }
+
+        startPage.classList.remove('hidden');
+    } else {
+        createQuestion();
+        if (correct) {
+            resultsDisplay.classList.add('hidden');
+            correctDisplay.classList.add('hidden');
+            correctQuestions++;
+        } else {
+            resultsDisplay.classList.add('hidden');
+            incorrectDisplay.classList.add('hidden');
+        }
         quizDisplay.classList.remove('hidden');
         correct = false;
     }
+    grade = Math.round((correctQuestions / questionNum) * 100);
+    questionNum++;
+    updateDisplay();
+}
+
+function playAgain() {
+    quizDisplay.classList.add('hidden');
+    startPage.classList.remove('hidden');
 }
 
 function startGame() {
     questionNum = 1;
+    correctQuestions = 0;
     totalQuestions = numQuestionsSlider.value;
     createQuestion();
     quizDisplay.classList.remove('hidden');
+    startPage.classList.add('hidden');
+
+    quizGrade.textContent = 100;
 }

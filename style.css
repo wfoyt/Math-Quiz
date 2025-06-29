@@ -14,7 +14,27 @@ body {
 
 
 /* The top progress area */
+.progressArea {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
 
+/* The play again button */
+#playAgainButton {
+    height: 35px;
+    background-color: #3B4C61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#playAgainButton:hover {
+    background-color: #354457;
+    cursor: pointer;
+}
 
 
 

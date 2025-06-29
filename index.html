@@ -12,7 +12,9 @@
         <!-- The quiz area -->
         <div class="quizArea hidden" id="quizDisplay">
             <div class="progressArea">
-                <p>Question: <span id="questionNumber">1/10</span></p>
+                <p class="textNormal"> Grade: <span id="quizGrade">100</span>%</p>
+                <p class="textNormal">Question: <span id="questionNumber">1/10</span> </p>
+                <button onclick="playAgain()" id="playAgainButton">Play Again</button>
             </div>
             <div class="equationArea">
                 <span id="equationShow">1+1</span>
@@ -57,9 +59,9 @@
                 <div class="startPageSelectors" id="sliderArea">
                     <label class="textNormal" for="numQuestionsSlider">
                         Number of Questions: 
-                        <span id="numQuestionsSliderDisplay">1</span>
+                        <span id="numQuestionsSliderDisplay">10</span>
                     </label>
-                    <input type="range" name="numQuestionsSlider" id="numQuestionsSlider" min="1" max="50" onmousemove="updateStartPage()">
+                    <input type="range" name="numQuestionsSlider" id="numQuestionsSlider" min="1" max="50" value="10" onmousemove="updateStartPage()">
                 </div>
 
                 <div class="startPageSelectors" id="dropdownArea">
