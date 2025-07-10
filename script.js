@@ -128,8 +128,7 @@ function createAdditionQuestion() {
         choice4 = Math.round(Math.random()*100);
     }
 
-    // DEBUGGING: remove later
-    document.getElementById('choiceSpotDisplay').innerHTML = choiceSpot;
+
 
     updateDisplay();
 }
@@ -168,13 +167,12 @@ function createSubtractionQuestion() {
         choice4 = Math.round(Math.random()*100);
     }
 
-    // DEBUGGING: remove later
-    document.getElementById('choiceSpotDisplay').innerHTML = choiceSpot;
+
 
     updateDisplay();
 }
 
-// Creates an subtraction question, then calls updateScreen()
+// Creates an multiplication question, then calls updateScreen()
 function createMultiplicationQuestion() {
     let subNum2 = Math.round((Math.random()*50));
     let subNum1 = Math.round((Math.random()*50));
@@ -208,8 +206,52 @@ function createMultiplicationQuestion() {
         choice4 = Math.round(Math.random()*1000);
     }
 
-    // DEBUGGING: remove later
-    document.getElementById('choiceSpotDisplay').innerHTML = choiceSpot;
+
+    updateDisplay();
+}
+
+
+// Creates a division question, then calls updateScreen()
+function createDivisionQuestion() {
+    let divNum1 = Math.round((Math.random()*1000)+1);
+    let divNum2 = Math.round((Math.random()*100)+1);
+
+    while (divNum2 === 0 || divNum1 % divNum2 !== 0 || divNum1 == divNum2) {
+        divNum1 = Math.round((Math.random()*1000)+1);
+        divNum2 = Math.round((Math.random()*100)+1);
+    }
+
+    equation = "" + divNum1 + "/" + divNum2;
+    let choiceSpot = Math.floor((Math.random()*4)+1);
+    answer = Math.round(eval(equation));
+
+    choice1, choice2, choice3, choice4 = 0;
+
+    if (choiceSpot == 1) {
+        choice1 = answer;
+    } else {
+        choice1 = Math.round(Math.random()*50);
+    }
+
+    if (choiceSpot == 2) {
+        choice2 = answer;
+    } else {
+        choice2 = Math.round(Math.random()*50);
+    } 
+
+    if (choiceSpot == 3) {
+        choice3 = answer;
+    } else {
+        choice3 = Math.round(Math.random()*50);
+    }
+
+    if (choiceSpot == 4) {
+        choice4 = answer;
+    } else {
+        choice4 = Math.round(Math.random()*50);
+    }
+
+
 
     updateDisplay();
 }
@@ -258,6 +300,8 @@ function nextQuestion() {
             createSubtractionQuestion()
         } else if (problemType == "mult") {
             createMultiplicationQuestion()
+        } else if (problemType == "divi") {
+            createDivisionQuestion();
         }
 
         if (correct) {
@@ -301,6 +345,8 @@ function startGame() {
         createSubtractionQuestion();
     } else if (problemType == "mult") {
         createMultiplicationQuestion();
+    } else if (problemType == "divi") {
+        createDivisionQuestion();
     }
     quizDisplay.classList.remove('hidden');
     startPage.classList.add('hidden');
